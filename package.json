@@ -1,0 +1,31 @@
+{
+  "name": "s3-file-transfer-renmae",
+  "version": "1.0.0",
+  "description": "Transfers files from one AWS S3 bucket to another and renames it",
+  "main": "app.js",
+  "dependencies": {},
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-plugin-syntax-async-functions": "^6.13.0",
+    "babel-plugin-transform-regenerator": "^6.24.1",
+    "babel-polyfill": "^6.23.0",
+    "babel-preset-es2015": "^6.24.1",
+    "watch": "^1.0.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1", 
+    "watch": "watch \"npm run build && npm run start\" src",
+    "build": "babel src -d build --presets es2015",
+    "start": "node build/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/itsmikechu/s3-file-transfer-renmae.git"
+  },
+  "author": "Mike Chu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/itsmikechu/s3-file-transfer-renmae/issues"
+  },
+  "homepage": "https://github.com/itsmikechu/s3-file-transfer-renmae#readme"
+}
