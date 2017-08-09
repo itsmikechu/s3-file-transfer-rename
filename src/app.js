@@ -36,7 +36,7 @@ class App {
                 }, (error, data) => {
                     if (error) {
                         console.log(error);
-                        return;
+                        throw error;
                     }
                     console.log(data);
                 });
