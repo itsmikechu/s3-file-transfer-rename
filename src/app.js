@@ -17,13 +17,14 @@ class App {
         const header = [];
         lineReader.on('line', (dataline) => {
             const line = dataline.replace(new RegExp('"', 'g'), '');
-            const file = {};
 
-            const data = line.split(',');
             if (header.length === 0) {
                 header.push(...line.split(','));
             }
             else {
+                const data = line.split(',');
+                const file = {};
+
                 header.map((fieldName, index) => {
                     file[fieldName] = data[index];
                 });
