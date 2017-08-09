@@ -1,9 +1,7 @@
-require("babel-polyfill");
-
-import AWS from 'aws-sdk';
-import config from './config.json'
-import fs from 'fs-extra';
-import readline from 'readline';
+const AWS = require('aws-sdk');
+const config = require('./config.json');
+const fs = require('fs-extra');
+const readline = require('readline');
 
 class App {
     static main() {
