@@ -15,31 +15,31 @@ class App {
         });
 
         const header = [];
-        lineReader.once('line', (dataline) => {
-            const line = dataline.replace(new RegExp('"', 'g'), '');
-            header.push(...line.split(','));
-        });
-
         lineReader.on('line', (dataline) => {
             const line = dataline.replace(new RegExp('"', 'g'), '');
             const file = {};
 
             const data = line.split(',');
-            header.map((fieldName, index) => {
-                file[fieldName] = data[index];
-            });
+            if (header.length === 0) {
+                header.push(...line.split(','));
+            }
+            else {
+                header.map((fieldName, index) => {
+                    file[fieldName] = data[index];
+                });
 
-            s3.copyObject({
-                Bucket: config.buckets.destination,
-                CopySource: `${config.buckets.source}/${file.filePathOnDisk}`,
-                Key: `${file.targetFileName}`,
-            }, (error, data) => {
-                if (error) {
-                    console.log(error);
-                    return;
-                }
-                console.log(data);
-            });
+                s3.copyObject({
+                    Bucket: config.buckets.destination,
+                    CopySource: `${config.buckets.source}/${file.filePathOnDisk}`,
+                    Key: `${file.targetFileName}`,
+                }, (error, data) => {
+                    if (error) {
+                        console.log(error);
+                        return;
+                    }
+                    console.log(data);
+                });
+            }
         });
     }
 }
