@@ -35,10 +35,11 @@ class App {
                     Key: `${file.targetFileName}`,
                 }, (error, data) => {
                     if (error) {
-                        console.log(error);
-                        throw error;
+                        fs.appendFile(`${config.workingPath}\\files-errors.log`, `${line}\r\n`);
                     }
-                    console.log(data);
+                    else {
+                        console.log(data);
+                    }
                 });
             }
         });
