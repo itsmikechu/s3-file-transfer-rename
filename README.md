@@ -15,3 +15,5 @@ You'll need a config.js file near your entry point
     }
 }
 ```
+--- 
+A quick utility for Ashworth College
